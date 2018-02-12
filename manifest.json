@@ -1,0 +1,36 @@
+{
+  // Required
+  "manifest_version": 2,
+  "name": "Lean Extension",
+  "version": "1.0",
+
+  // Recommended
+  "description": "Lean Extension",
+  "icons": { "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png" },
+
+  // Optional
+  "action": "Anonymous",
+  "browser_action": {
+    "default_icon": {                    // optional
+      "16": "icon.png",           // optional
+      "24": "icon.png",           // optional
+      "32": "icon.png"            // optional
+    },
+    "default_title": "Lean Extension",      // optional; shown in tooltip
+    "default_popup": "popup.html"        // optional
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["popup/js/jquery.js", "myScript.js"]
+    }
+  ],
+  "permissions": [
+      "<all_urls>"
+  ]
+}
